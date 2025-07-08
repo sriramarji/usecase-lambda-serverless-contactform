@@ -53,7 +53,7 @@ resource "aws_lambda_function" "contact_handler" {
   memory_size   = 128
   source_code_hash = filebase64sha256(var.lambda_zip_path)
 
-  #depends_on       = [aws_iam_role.lambda_exec]
+  depends_on       = [aws_iam_role.lambda_exec]
   environment {
     variables = {
       TABLE_NAME      = var.dynamodb_table_name

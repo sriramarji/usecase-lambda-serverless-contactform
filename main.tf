@@ -14,10 +14,7 @@ module "lambda" {
   lambda_zip_path = data.archive_file.test_zip.output_path
   dynamodb_table_arn = module.dynamodb.dynamodb_table_arn
   dynamodb_table_name = module.dynamodb.dynamodb_table_name  
-  #function_name
-  #handler
-  #runtime
-  #lambda_zip_path
+
 }
 
 module "apigw" {

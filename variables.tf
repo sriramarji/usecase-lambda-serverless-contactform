@@ -31,5 +31,4 @@ variable "table_name" {
 # variable "my_lambda_zip_path" {
 #     description = ""
 #     type = string
-#     default = "./lambda/my-lambdafunction.zip"
 # }
