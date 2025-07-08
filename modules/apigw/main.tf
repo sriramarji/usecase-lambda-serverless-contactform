@@ -1,6 +1,6 @@
 resource "aws_apigatewayv2_api" "http_api" {
-  name          = var.api_name      #"http-api"
-  protocol_type = "HTTP"            #var.api_protocol_type
+  name          = var.api_name #"http-api"
+  protocol_type = "HTTP"       #var.api_protocol_type
 }
 
 resource "aws_apigatewayv2_integration" "lambda_integration" {

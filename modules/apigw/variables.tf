@@ -9,8 +9,8 @@ variable "integration_uri_arn" {
 }
 
 variable "lambda_function_name" {
-    description = "Name to be used on lambda name"
-    type = string
+  description = "Name to be used on lambda name"
+  type        = string
 }
 
 variable "aws_apigatewayv2_arn" {

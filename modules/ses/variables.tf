@@ -1,4 +1,4 @@
 variable "email_recipient" {
-    description = "email recipient"
-    type = string
+  description = "email recipient"
+  type        = string
 }
