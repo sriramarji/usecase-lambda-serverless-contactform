@@ -1,11 +1,42 @@
+data "archive_file" "test_zip" {
+  type        = "zip"
+  source_file = "${path.module}/lambda_application/uc_contact_form.py"
+  output_path = "${path.module}/lambda_application/uc_contact_form.zip"
+}
+
 module "lambda" {
   source                = "./modules/lambda"
 
-  function_name  =  var.my-function_name
-  handler =  var.my-handler
-  runtime =  var.my-runtime
-  environment_vars = var.my-environment_variables
-  #aws_apigatewayv2_arn = var.my-lambda_role_name
-  lambda_zip_path = var.my-lambda_zip_path
+  lambda_function_name = var.my_function_name
+  email_recipient = var.email_recipient
+  handler =  var.my_handler
+  runtime =  var.my_runtime
+  lambda_zip_path = data.archive_file.test_zip.output_path
+  dynamodb_table_arn = module.dynamodb.dynamodb_table_arn
+  dynamodb_table_name = module.dynamodb.dynamodb_table_name  
+  #function_name
+  #handler
+  #runtime
+  #lambda_zip_path
+}
 
+module "apigw" {
+  source = "./modules/apigw"
+
+  api_name = "http-api"
+  integration_uri_arn = module.lambda.lambda_function_arn
+  lambda_function_name = module.lambda.lambda_function_name
+  aws_apigatewayv2_arn = module.api_gateway.aws_apigatewayv2_arn
+
+}
+
+module "dynamodb" {
+    source = "./modules/dynamodb"
+}
+
+
+module "ses" {
+  source = "./modules/ses"
+
+  email_recipient = var.email_recipient
 }

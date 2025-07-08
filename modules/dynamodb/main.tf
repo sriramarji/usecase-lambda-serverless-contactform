@@ -7,6 +7,4 @@ resource "aws_dynamodb_table" "contact_form" {
     name = "id"
     type = "S"
   }
-
-  tags = var.tags
 }

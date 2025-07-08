@@ -1,8 +1,3 @@
-variable "function_name" {
-  type        = string
-  description = "Lambda function name"
-}
-
 variable "handler" {
   type        = string
   description = "Lambda handler"
@@ -13,18 +8,24 @@ variable "runtime" {
   description = "Lambda runtime"
 }
 
-variable "environment_vars" {
-  type        = map(string)
-  description = "Environment variables for Lambda"
-  default     = {}
-}
-
 variable "lambda_zip_path" {
   type        = string
   description = "Lambda runtime"
 }
 
-variable "aws_dynamodb_table_arn" {
+variable "lambda_function_name" {
   type        = string
-  description = "dynamo-table arn"
+  description = "lambda function name"
 }
+
+variable "email_recipient" {}
+
+variable "dynamodb_table_arn" {}
+
+variable "dynamodb_table_name" {}
+
+# variable "environment_vars" {
+#   type        = map(string)
+#   description = "Environment variables for Lambda"
+#   default     = {}
+# }

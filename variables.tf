@@ -1,35 +1,29 @@
-variable "my-function_name" {
+variable "my_function_name" {
     description = ""
     type = string
     default = "demo-lambda"
 }
 
-variable "my-handler" {
+variable "my_handler" {
     description = ""
     type = string
     default = "lambda_function.lambda_handler"
 }
 
-variable "my-runtime" {
+variable "my_runtime" {
     description = ""
     type = string
     default = "python3.9"
 }
 
-variable "my-environment_variables" {
-    description = ""
-    type    = map(string)
-    default = {}
+variable "email_recipient" {
+  description = "Email to receive contact form submissions"
+  type        = string
+  default     = "bhaskarsaisri.arji@hcltech.com"
 }
 
-variable "my-lambda_role_name" {
-    description = ""
-    type = string
-    default = "lambda-role"
-}
-
-variable "my-lambda_zip_path" {
-    description = ""
-    type = string
-    default = "./lambda/my-lambdafunction.zip"
-}
+# variable "my_lambda_zip_path" {
+#     description = ""
+#     type = string
+#     default = "./lambda/my-lambdafunction.zip"
+# }

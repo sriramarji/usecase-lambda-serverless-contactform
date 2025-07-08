@@ -1,5 +1,5 @@
 resource "aws_iam_role" "lambda_exec" {
-  name = "${var.function_name}-exec-role"
+  name = "uc-contactform-exec-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -27,7 +27,7 @@ resource "aws_iam_policy" "dynamodb_policy" {
       {
         Action = ["dynamodb:PutItem"],
         Effect = "Allow",
-        #Resource = var.aws_dynamodb_table_arn
+        Resource = var.dynamodb_table_arn
       },
       {
         Action = ["ses:SendEmail"],
@@ -50,8 +50,15 @@ resource "aws_lambda_function" "contact_handler" {
   runtime       = var.runtime
   filename      = var.lambda_zip_path
   timeout       = 10
+  memory_size   = 128
+  source_code_hash = filebase64sha256(var.lambda_zip_path)
+
+  #depends_on       = [aws_iam_role.lambda_exec]
   environment {
-    variables = var.environment_vars
+    variables = {
+      TABLE_NAME      = var.dynamodb_table_name
+      EMAIL_RECIPIENT = var.email_recipient
+    }
   }
 }
-
+  
