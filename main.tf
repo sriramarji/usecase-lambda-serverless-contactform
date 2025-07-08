@@ -26,7 +26,7 @@ module "apigw" {
   api_name = "http-api"
   integration_uri_arn = module.lambda.lambda_function_arn
   lambda_function_name = module.lambda.lambda_function_name
-  aws_apigatewayv2_arn = module.api_gateway.aws_apigatewayv2_arn
+  aws_apigatewayv2_arn = module.apigw.aws_apigatewayv2_arn
 }
 
 module "dynamodb" {
