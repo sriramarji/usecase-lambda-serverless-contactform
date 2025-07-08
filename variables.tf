@@ -22,6 +22,12 @@ variable "email_recipient" {
   default     = "bhaskarsaisri.arji@hcltech.com"
 }
 
+variable "table_name" {
+  type        = string
+  description = "Name of the DynamoDB table"
+  default = "contact-form-lambda-apigw"
+}
+
 # variable "my_lambda_zip_path" {
 #     description = ""
 #     type = string

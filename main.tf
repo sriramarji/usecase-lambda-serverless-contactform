@@ -27,11 +27,12 @@ module "apigw" {
   integration_uri_arn = module.lambda.lambda_function_arn
   lambda_function_name = module.lambda.lambda_function_name
   aws_apigatewayv2_arn = module.api_gateway.aws_apigatewayv2_arn
-
 }
 
 module "dynamodb" {
     source = "./modules/dynamodb"
+
+    table_name = var.table_name
 }
 
 

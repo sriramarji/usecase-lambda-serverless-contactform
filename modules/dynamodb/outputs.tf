@@ -1,6 +1,6 @@
-output "table_name" {
-  value = aws_dynamodb_table.contact_form.name
-}
+# output "table_name" {
+#   value = aws_dynamodb_table.contact_form.name
+# }
 
  output "dynamodb_table_name" {
   description = "Name of the DynamoDB table storing contact form data"
