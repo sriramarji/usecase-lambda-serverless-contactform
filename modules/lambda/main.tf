@@ -27,7 +27,7 @@ resource "aws_iam_policy" "dynamodb_policy" {
       {
         Action = ["dynamodb:PutItem"],
         Effect = "Allow",
-        Resource = var.aws_dynamodb_table_arn
+        #Resource = var.aws_dynamodb_table_arn
       },
       {
         Action = ["ses:SendEmail"],
@@ -55,10 +55,3 @@ resource "aws_lambda_function" "contact_handler" {
   }
 }
 
-resource "aws_lambda_permission" "apigw_invoke" {
-  statement_id  = "AllowAPIGatewayInvoke"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.contact_handler.function_name
-  principal     = "apigateway.amazonaws.com"
-  source_arn    = var.aws_apigatewayv2_arn
-}

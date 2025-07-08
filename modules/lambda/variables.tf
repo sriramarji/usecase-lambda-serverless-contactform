@@ -1,4 +1,4 @@
-variable "lambda_function_name" {
+variable "function_name" {
   type        = string
   description = "Lambda function name"
 }
@@ -19,12 +19,12 @@ variable "environment_vars" {
   default     = {}
 }
 
-variable "aws_apigatewayv2_arn" {
+variable "lambda_zip_path" {
   type        = string
   description = "Lambda runtime"
 }
 
-variable "lambda_zip_path" {
+variable "aws_dynamodb_table_arn" {
   type        = string
-  description = "Lambda runtime"
+  description = "dynamo-table arn"
 }

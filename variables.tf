@@ -28,8 +28,8 @@ variable "my-lambda_role_name" {
     default = "lambda-role"
 }
 
-# variable "my-lambda_zip_path" {
-#     description = ""
-#     type = string
-#     default = "./lambda/my-lambdafunction.zip"
-# }
+variable "my-lambda_zip_path" {
+    description = ""
+    type = string
+    default = "./lambda/my-lambdafunction.zip"
+}
