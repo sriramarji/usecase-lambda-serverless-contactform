@@ -28,7 +28,6 @@ def lambda_handler(event, context):
         "name": name,
         "email": email,
         "message": message,
-        "timestamp": timestamp,
     })
 
     # Send notification via SES

@@ -1,0 +1,14 @@
+#************event json***********
+
+{
+  "body": "{\"id\": \"2\", \"name\": \"sriram\", \"email\": \"bhaskarsaisriram@gmail.com\", \"message\": \"Hello, I would like to know more about your services.\"}"
+}
+
+
+#************curl syntax***********
+
+curl -X POST https://ygvyj3a645.execute-api.us-east-1.amazonaws.com/contact -H "Content-Type: application/json" -d '{"name": "hello","email": "admin@example.com","message": "Hello world from SES"}'
+
+#give api-endpoint url
+#give mail id
+#give message

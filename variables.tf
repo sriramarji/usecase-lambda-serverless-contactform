@@ -7,7 +7,7 @@ variable "my_function_name" {
 variable "my_handler" {
   description = ""
   type        = string
-  default     = "lambda_function.lambda_handler"
+  default     = "uc_contact_form.lambda_handler"
 }
 
 variable "my_runtime" {
@@ -19,7 +19,7 @@ variable "my_runtime" {
 variable "email_recipient" {
   description = "Email to receive contact form submissions"
   type        = string
-  default     = "bhaskarsaisri.arji@hcltech.com"
+  default     = "bhaskarsaisriram@gmail.com"
 }
 
 variable "table_name" {
