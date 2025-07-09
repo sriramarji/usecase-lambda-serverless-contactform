@@ -1,7 +1,7 @@
 data "archive_file" "test_zip" {
   type        = "zip"
-  source_file = "${path.module}/lambda_application/uc_contact_form.py"
-  output_path = "${path.module}/lambda_application/uc_contact_form.zip"
+  source_file = "${path.module}/lambda_application/lambda_function.py"
+  output_path = "${path.module}/lambda_application/lambda_function.zip"
 }
 
 module "lambda" {
